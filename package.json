@@ -4,7 +4,7 @@
   "description": "> Description the project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/maqsudtolipov/instagram-api/issues"
   },
-  "homepage": "https://github.com/maqsudtolipov/instagram-api#readme"
+  "homepage": "https://github.com/maqsudtolipov/instagram-api#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.16"
+  }
 }
