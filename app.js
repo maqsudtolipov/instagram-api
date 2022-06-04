@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 
+const postRoutes = require('./routes/postRoutes');
+
 const app = express();
 
 //++ Middleware
@@ -11,8 +13,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
+//++ Routes
+app.use('/api/v1/posts', postRoutes);
 
 module.exports = app;
