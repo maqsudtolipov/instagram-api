@@ -8,6 +8,7 @@ app.use(express.json());
 
 app.use((req, res, next) => {
   console.log('🍏 Request received');
+  next();
 });
 
 app.get('/', (req, res) => {
