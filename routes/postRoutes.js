@@ -6,7 +6,7 @@ const router = express.Router();
 router
   .route('/')
   .get(postController.getAllPosts)
-  .post(postController.checkBody, postController.createPost);
+  .post(postController.createPost);
 
 router
   .route('/:id')

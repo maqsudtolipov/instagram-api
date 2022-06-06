@@ -1,15 +1,5 @@
 const Post = require('../model/postModel');
 
-exports.checkBody = (req, res, next) => {
-  if (!req.body.name || !req.body.price) {
-    return res.status(400).send({
-      status: 'fail',
-      message: 'Please provide name and email',
-    });
-  }
-  next();
-};
-
 exports.getAllPosts = (req, res) => {
   res.status(200).send({
     status: 'success',
@@ -25,11 +15,24 @@ exports.getPost = (req, res) => {
   });
 };
 
-exports.createPost = (req, res) => {
-  res.status(201).send({
-    status: 'successs',
-    data: {},
-  });
+exports.createPost = async (req, res) => {
+  try {
+    console.log(54);
+    const newPost = await Post.create(req.body);
+    console.log(req.body);
+
+    res.status(201).send({
+      status: 'success',
+      data: {
+        post: newPost,
+      },
+    });
+  } catch (err) {
+    res.status(500).send({
+      status: 'error',
+      message: err,
+    });
+  }
 };
 
 exports.updatePost = (req, res) => {
