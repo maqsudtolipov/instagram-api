@@ -10,6 +10,13 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Caption is required'],
   },
+  likes: [],
+  comments: [],
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    immutable: true,
+  },
 });
 const Post = mongoose.model('Post', postSchema);
 
