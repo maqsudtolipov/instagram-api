@@ -4,6 +4,7 @@ const postSchema = new mongoose.Schema({
   image: {
     type: String,
     required: [true, 'Image is required'],
+    immutable: true,
   },
   caption: {
     type: String,
