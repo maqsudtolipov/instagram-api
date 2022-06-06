@@ -78,9 +78,18 @@ exports.updatePost = async (req, res) => {
   }
 };
 
-exports.deletePost = (req, res) => {
-  res.status(204).send({
-    status: 'success',
-    data: {},
-  });
+exports.deletePost = async (req, res) => {
+  try {
+    await Post.findByIdAndDelete(req.params.id);
+
+    res.status(204).send({
+      status: 'success',
+      data: {},
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err,
+    });
+  }
 };
